@@ -1,0 +1,8 @@
+D:\projects\OnBoarding\LearningRoundKamran\src\Backend\Domain\bin\Debug\netstandard2.1\Elfo.Contoso.LearningRoundKamran.Domain.deps.json
+D:\projects\OnBoarding\LearningRoundKamran\src\Backend\Domain\bin\Debug\netstandard2.1\Elfo.Contoso.LearningRoundKamran.Domain.dll
+D:\projects\OnBoarding\LearningRoundKamran\src\Backend\Domain\bin\Debug\netstandard2.1\Elfo.Contoso.LearningRoundKamran.Domain.pdb
+D:\projects\OnBoarding\LearningRoundKamran\src\Backend\Domain\obj\Debug\netstandard2.1\Domain.csproj.AssemblyReference.cache
+D:\projects\OnBoarding\LearningRoundKamran\src\Backend\Domain\obj\Debug\netstandard2.1\Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\projects\OnBoarding\LearningRoundKamran\src\Backend\Domain\obj\Debug\netstandard2.1\Domain.csproj.CoreCompileInputs.cache
+D:\projects\OnBoarding\LearningRoundKamran\src\Backend\Domain\obj\Debug\netstandard2.1\Elfo.Contoso.LearningRoundKamran.Domain.dll
+D:\projects\OnBoarding\LearningRoundKamran\src\Backend\Domain\obj\Debug\netstandard2.1\Elfo.Contoso.LearningRoundKamran.Domain.pdb

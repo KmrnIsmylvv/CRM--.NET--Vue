@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <AssemblyName>Elfo.Contoso.LearningRoundKamran.Domain</AssemblyName>
+    <RootNamespace>Elfo.Contoso.LearningRoundKamran.Domain</RootNamespace>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\Assembly\AssemblyInfo.cs" Link="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Elfo.Round.Cryptography" Version="2.0.0" />
+    <PackageReference Include="Elfo.Round.Exceptions" Version="1.0.0" />
+    <PackageReference Include="Elfo.Round.WriteCycle.NHibernate" Version="3.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+</Project>

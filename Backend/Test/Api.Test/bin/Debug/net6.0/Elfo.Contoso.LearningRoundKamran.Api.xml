@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Elfo.Contoso.LearningRoundKamran.Api</name>
+    </assembly>
+    <members>
+        <member name="T:Elfo.Contoso.LearningRoundKamran.Api.Infrastructure.OperationIdFilter">
+            <summary>
+            Operation filter to add the requirement of the custom header
+            </summary>
+        </member>
+        <member name="T:Elfo.Contoso.LearningRoundKamran.Api.Infrastructure.ProfilerFilter">
+            <summary>
+            Operation filter to add the requirement of the custom header
+            </summary>
+        </member>
+    </members>
+</doc>

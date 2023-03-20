@@ -1,0 +1,5 @@
+{
+	"icon": "fa-user",
+	"includeInDrawer": true,
+	"redirect": "systemManagement.users"
+}

@@ -1,0 +1,5 @@
+{
+	"icon": "fa-book",
+	"includeInDrawer": true,
+	"redirect": "courseManagement.courses"
+}

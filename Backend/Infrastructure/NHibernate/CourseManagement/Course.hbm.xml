@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="Elfo.Contoso.LearningRoundKamran.Domain.CourseManagement" assembly="Elfo.Contoso.LearningRoundKamran.Domain" schema="dbo">
+	<class name="Course" table="courses_tb">
+		<id name="Id" column="idCourse" type="Elfo.Contoso.LearningRoundKamran.Infrastructure.NHibernate.CourseManagement.CourseIDType, Elfo.Contoso.LearningRoundKamran.Infrastructure">
+			<generator class="native" />
+		</id>
+
+		<version name="DatabaseVersion" column="databaseVersion" type="System.Int32" />
+
+		<property name="Name" column="name" />
+		<property name="Description" column="description" />
+		<property name="StartDate" column="startDate" />
+		<property name="EndDate" column="endDate" />
+		<property name="IsEnabled" column="isEnabled" />
+		<property name="IdTeacher" column="idTeacher" type="Elfo.Contoso.LearningRoundKamran.Infrastructure.NHibernate.SystemManagement.SystemUserIDType, Elfo.Contoso.LearningRoundKamran.Infrastructure"/>
+
+		<bag name="Lessons" access="field.camelcase" inverse="true" cascade="all-delete-orphan">
+			<key column="idCourse" />
+			<one-to-many class="Lesson" />
+		</bag>
+		
+	</class>
+</hibernate-mapping>

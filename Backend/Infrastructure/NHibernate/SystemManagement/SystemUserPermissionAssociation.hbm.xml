@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="Elfo.Contoso.LearningRoundKamran.Domain.SystemManagement" assembly="Elfo.Contoso.LearningRoundKamran.Domain" schema="round">
+  <class name="SystemUserPermissionAssociation" table="usersPermissions_tb">
+    <composite-id name="Id" class="Elfo.Contoso.LearningRoundKamran.Domain.SystemManagement.ValueObjects.SystemUserPermissionAssociationID">
+      <key-property name="IdUser" column="idUser" type="Elfo.Contoso.LearningRoundKamran.Infrastructure.NHibernate.SystemManagement.SystemUserIDType, Elfo.Contoso.LearningRoundKamran.Infrastructure"/>
+      <key-property name="Permission" column="permission"/>
+    </composite-id>
+
+    <version name="DatabaseVersion" column="databaseVersion" type="System.Int32" />
+  </class>
+</hibernate-mapping>

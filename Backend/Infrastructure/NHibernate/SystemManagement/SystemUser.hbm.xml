@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="Elfo.Contoso.LearningRoundKamran.Domain.SystemManagement" assembly="Elfo.Contoso.LearningRoundKamran.Domain" schema="round">
+  <class name="SystemUser" table="users_tb">
+    <id name="Id" column="idUser" type="Elfo.Contoso.LearningRoundKamran.Infrastructure.NHibernate.SystemManagement.SystemUserIDType, Elfo.Contoso.LearningRoundKamran.Infrastructure">
+      <generator class="native" />
+    </id>
+
+    <version name="DatabaseVersion" column="databaseVersion" type="System.Int32" />
+    <property name="Username" column="username" />
+    <property name="Password" column="password" />
+    <property name="LanguageCode" column="languageCode" />
+    <property name="CultureCode" column="cultureCode" />
+    <property name="IsEnabled" column="isEnabled" />
+    <property name="FirstName" column="firstName" />
+    <property name="LastName" column="lastName" />
+    <property name="Email" column="email" />
+
+    <one-to-one name="UserInformation" class="UserInformation" cascade="all-delete-orphan"/>
+  </class>
+</hibernate-mapping>

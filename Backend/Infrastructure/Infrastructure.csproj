@@ -1,0 +1,51 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <AssemblyName>Elfo.Contoso.LearningRoundKamran.Infrastructure</AssemblyName>
+    <RootNamespace>Elfo.Contoso.LearningRoundKamran.Infrastructure</RootNamespace>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\Assembly\AssemblyInfo.cs" Link="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+
+	<ItemGroup>
+    <None Remove="NHibernate\CourseManagement\Course.hbm.xml" />
+    <None Remove="NHibernate\CourseManagement\Exam.hbm.xml" />
+    <None Remove="NHibernate\CourseManagement\Lesson.hbm.xml" />
+    <None Remove="NHibernate\SystemManagement\NamedQueries\SystemManagementQueries.hbm.xml" />
+    <None Remove="NHibernate\SystemManagement\SystemGroup.hbm.xml" />
+    <None Remove="NHibernate\SystemManagement\SystemGroupPermissionAssociation.hbm.xml" />
+    <None Remove="NHibernate\SystemManagement\SystemUser.hbm.xml" />
+    <None Remove="NHibernate\SystemManagement\SystemUserGroupAssociation.hbm.xml" />
+    <None Remove="NHibernate\SystemManagement\SystemUserPermissionAssociation.hbm.xml" />
+    <None Remove="NHibernate\SystemManagement\UserInformation.hbm.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="NHibernate\CourseManagement\Course.hbm.xml" />
+    <EmbeddedResource Include="NHibernate\CourseManagement\Exam.hbm.xml" />
+    <EmbeddedResource Include="NHibernate\CourseManagement\Lesson.hbm.xml" />
+    <EmbeddedResource Include="NHibernate\SystemManagement\NamedQueries\SystemManagementQueries.hbm.xml" />
+    <EmbeddedResource Include="NHibernate\SystemManagement\SystemGroup.hbm.xml" />
+    <EmbeddedResource Include="NHibernate\SystemManagement\SystemGroupPermissionAssociation.hbm.xml" />
+    <EmbeddedResource Include="NHibernate\SystemManagement\SystemUser.hbm.xml" />
+    <EmbeddedResource Include="NHibernate\SystemManagement\SystemUserGroupAssociation.hbm.xml" />
+    <EmbeddedResource Include="NHibernate\SystemManagement\SystemUserPermissionAssociation.hbm.xml" />
+    <EmbeddedResource Include="NHibernate\SystemManagement\UserInformation.hbm.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+	<PackageReference Include="Elfo.Round.Context.Abstractions" Version="1.0.0" />
+    <PackageReference Include="NHibernate" Version="5.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Domain\Domain.csproj" />
+  </ItemGroup>
+
+</Project>

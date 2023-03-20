@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<file-queries>
+  <query name ="GetUsers" >
+    <![CDATA[
+      select		round.users_tb.idUser, 
+			          round.users_tb.userName,
+			          round.users_tb.firstName,
+			          round.users_tb.lastName,
+                concat(round.users_tb.firstName, ' ', round.users_tb.lastName) as fullName,
+			          round.users_tb.eMail,
+			          round.users_tb.languageCode,
+			          round.users_tb.cultureCode, 
+                round.users_tb.isEnabled,
+			          userInformations_tb.telephoneNumber,
+			          userGroups.groupNames,
+                userPermissions.permissions
+      from		  round.users_tb
+      left join userInformations_tb on round.users_tb.idUser = userInformations_tb.idUser
+      left join 
+      (
+        select  idUser,
+		            groupNames = stuff(
+			            cast((
+				            select			  distinct ', ' + round.groups_tb.groupName as [text()] 
+				            from			    round.groups_tb
+				            inner join		round.usersGroups_tb on round.groups_tb.idGroup = round.usersGroups_tb.idGroup
+				            where			    round.usersGroups_tb.idUser = round.users_tb.idUser
+				            for xml path	('')
+			            ) as nvarchar(max)),
+			            1, 2, '')
+        from    round.users_tb
+      ) as userGroups on round.users_tb.idUser = userGroups.idUser
+      inner join
+      (
+        select	idUser,
+		        [permissions] = stuff(
+			        cast((
+				        select ', ' + userGroupPermissions.permission as [text()]
+				        from
+				        (
+					        select  round.usersPermissions_tb.permission as permission
+					        from	  round.usersPermissions_tb
+					        where   round.usersPermissions_tb.idUser = round.users_tb.idUser
+
+					        union
+
+					        select		  round.groupsPermissions_tb.permission as permission
+					        from		    round.groupsPermissions_tb
+					        inner join  round.usersGroups_tb on round.groupsPermissions_tb.idGroup = round.usersGroups_tb.idGroup
+					        where		    round.usersGroups_tb.idUser = round.users_tb.idUser
+				        ) as userGroupPermissions
+				        for xml path ('')
+			        ) as nvarchar(max)),
+			        1, 2, '')
+        from	round.users_tb
+      ) as userPermissions on round.users_tb.idUser = userPermissions.idUser
+    ]]>
+  </query>
+  <query name ="GetGroups" >
+    <![CDATA[
+      select	round.groups_tb.idGroup,
+		          round.groups_tb.groupName as [name],
+		          round.groups_tb.isEnabled,
+		          userGroups.userFullNames,
+		          groupPermissions.[permissions]
+      from	  round.groups_tb
+      left join 
+      (
+	      select  idGroup,
+			      userFullNames = stuff(
+				      cast((
+					      select			distinct ', ' + round.users_tb.firstName + ' ' + round.users_tb.lastName as [text()] 
+					      from			round.users_tb
+					      inner join		round.usersGroups_tb on round.users_tb.idUser = round.usersGroups_tb.idUser
+					      where			round.usersGroups_tb.idGroup = round.groups_tb.idGroup
+					      for xml path	('')
+				      ) as nvarchar(max)),
+				      1, 2, '')
+	      from    round.groups_tb
+      ) as userGroups on round.groups_tb.idGroup = userGroups.idGroup
+      left join
+      (
+	      select	idGroup,
+			      [permissions] = stuff(
+				      cast((
+					      select			distinct ', ' + round.groupsPermissions_tb.permission as [text()]
+					      from		    round.groupsPermissions_tb
+					      where			round.groupsPermissions_tb.idGroup = round.groups_tb.idGroup
+					      for xml path	('')
+				      ) as nvarchar(max)),
+				      1, 2, '')
+	      from	round.groups_tb
+      ) as groupPermissions on round.groups_tb.idGroup = groupPermissions.idGroup
+    ]]>
+  </query>
+</file-queries>

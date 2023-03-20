@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\Elfo.Contoso.LearningRoundKamran.Api.props" />
+</Project>

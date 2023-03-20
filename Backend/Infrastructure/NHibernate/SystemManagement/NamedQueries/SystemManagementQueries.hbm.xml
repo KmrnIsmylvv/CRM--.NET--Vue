@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="Elfo.Contoso.LearningRoundFarid.Domain.SystemManagement" assembly="Elfo.Contoso.LearningRoundFarid.Domain">
+	<sql-query name="IsTeacher">
+		<query-param name="idUser" type="System.Int32" />
+		<![CDATA[		 
+				SELECT		u.idUser
+				FROM		round.users_tb u
+				INNER JOIN	round.usersGroups_tb ug ON u.idUser = ug.idUser
+				INNER JOIN	round.groups_tb g ON ug.idGroup = g.idGroup
+				WHERE		g.groupName = 'Teacher'  and u.idUser = :idUser	 
+		 ]]>
+	</sql-query>
+
+	<sql-query name="checkIsTeacher">
+		exec checkIsTeacher_sp :idUser
+	</sql-query>
+</hibernate-mapping>
